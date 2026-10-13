@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Academia Brújula | Cursos de programación online</title>
+    <meta name="description" content="Aprende desarrollo web, análisis de datos y ciberseguridad con cursos online, mentoría y proyectos prácticos para comenzar desde cero.">
     <!-- Font Awesome Icons for visual enhancement -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS for the web academy -->
     <link rel="stylesheet" href="./css/style.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+    "name": "Desarrollo web",
+    "description": "Aprende HTML5, CSS3, JavaScript y desarrollo moderno paso a paso.",
+  "provider": { "@type": "Organization", "name": "Academia Brújula" }
+}
+</script>
 </head>
 <body>
 
@@ -33,10 +43,10 @@
             <header class="site-header">
                 <span class="tag-badge tag-badge-header">&lt;header&gt;</span>
                 
-                <h1 class="brand-logo">
-                    <i class="fa-solid fa-compass" style="color: #2563eb;"></i>
+                <div class="brand-logo">
+                    <i class="fa-solid fa-compass" style="color: #2563eb;" aria-hidden="true"></i>
                     Academia Brújula
-                </h1>
+                </div>
 
                 <!-- NAV -->
                 <nav class="site-nav" aria-label="Navegación principal">
@@ -44,7 +54,7 @@
                     <ul>
                         <li><a href="#cursos">Cursos</a></li>
                         <li><a href="#preguntas">Preguntas</a></li>
-                        <li><a href="./pages/practice.html">Taller Practico</a></li>
+                        <li><a href="./pages/practice.html">Taller práctico</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </nav>
@@ -105,6 +115,36 @@
                             </div>
                         </article>
                     </div>
+                </section>
+
+                <section class="info-section" id="preguntas">
+                    <h2 class="section-title">Preguntas frecuentes</h2>
+                    <article class="faq-item">
+                        <h3>¿Necesito experiencia previa?</h3>
+                        <p>No. Los cursos de Academia Brújula están pensados para empezar desde cero.</p>
+                    </article>
+                    <article class="faq-item">
+                        <h3>¿Cómo se aprende?</h3>
+                        <p>Con clases online, acompañamiento y proyectos prácticos para aplicar cada tema.</p>
+                    </article>
+                </section>
+
+                <section class="info-section" id="contacto">
+                    <h2 class="section-title">Contacto</h2>
+                    <p>¿Tienes una pregunta sobre los cursos? Déjanos tus datos en este formulario de ejemplo.</p>
+                    <p class="demo-notice" id="contact-demo-note">Demostración: este formulario no envía mensajes ni guarda tus datos.</p>
+                    <form class="contact-form" id="contactForm" aria-describedby="contact-demo-note">
+                        <label for="contact-name">Nombre <span>(obligatorio)</span></label>
+                        <input id="contact-name" name="name" type="text" autocomplete="name" required>
+
+                        <label for="contact-email">Correo electrónico <span>(obligatorio)</span></label>
+                        <input id="contact-email" name="email" type="email" autocomplete="email" required>
+
+                        <label for="contact-message">Mensaje <span>(obligatorio)</span></label>
+                        <textarea id="contact-message" name="message" rows="4" required></textarea>
+
+                        <button class="btn" type="submit">Validar campos</button>
+                    </form>
                 </section>
             </main>
 

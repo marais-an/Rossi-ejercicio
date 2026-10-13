@@ -5,7 +5,7 @@
 
         let isStructureMode = false;
 
-        toggleStructureBtn.addEventListener('click', () => {
+        toggleStructureBtn?.addEventListener('click', () => {
             isStructureMode = !isStructureMode;
             if (isStructureMode) {
                 pageContainer.classList.add('show-structure');
@@ -24,7 +24,9 @@
         accordionHeaders.forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
-                item.classList.toggle('active');
+                const isExpanded = header.getAttribute('aria-expanded') !== 'true';
+                item.classList.toggle('active', isExpanded);
+                header.setAttribute('aria-expanded', String(isExpanded));
             });
         });
 
@@ -36,41 +38,48 @@
         const demoCard1 = document.getElementById('demoCard1');
         const demoCard2 = document.getElementById('demoCard2');
 
-        function updateBoxModel() {
-            const p = paddingInput.value + 'px';
-            const m = marginInput.value + 'px';
+        if (paddingInput && marginInput && paddingVal && marginVal && demoCard1 && demoCard2) {
+            function updateBoxModel() {
+                const p = paddingInput.value + 'px';
+                const m = marginInput.value + 'px';
 
-            paddingVal.textContent = p;
-            marginVal.textContent = m;
+                paddingVal.textContent = p;
+                marginVal.textContent = m;
 
-            [demoCard1, demoCard2].forEach(card => {
-                card.style.padding = p;
-                card.style.margin = m;
-            });
+                [demoCard1, demoCard2].forEach(card => {
+                    card.style.padding = p;
+                    card.style.margin = m;
+                });
+            }
+
+            paddingInput.addEventListener('input', updateBoxModel);
+            marginInput.addEventListener('input', updateBoxModel);
         }
-
-        paddingInput.addEventListener('input', updateBoxModel);
-        marginInput.addEventListener('input', updateBoxModel);
 
         // --- DEMO TURNO 3: FLEXBOX TOGGLE ---
         const toggleFlexBtn = document.getElementById('toggleFlexBtn');
         const demoFlexList = document.getElementById('demoFlexList');
         let isFlex = false;
 
-        toggleFlexBtn.addEventListener('click', () => {
-            isFlex = !isFlex;
-            if (isFlex) {
-                demoFlexList.style.display = 'flex';
-                demoFlexList.style.gap = '1.5rem';
-                toggleFlexBtn.textContent = 'Cambiar a display: block (Vertical)';
-                toggleFlexBtn.style.backgroundColor = '#d97706';
-            } else {
-                demoFlexList.style.display = 'block';
-                demoFlexList.style.gap = '0';
-                toggleFlexBtn.textContent = 'Cambiar a display: flex (Horizontal)';
-                toggleFlexBtn.style.backgroundColor = '#0284c7';
-            }
-        });
+        if (toggleFlexBtn && demoFlexList) {
+            toggleFlexBtn.addEventListener('click', () => {
+                isFlex = !isFlex;
+                if (isFlex) {
+                    demoFlexList.style.display = 'flex';
+                    demoFlexList.style.gap = '1.5rem';
+                    toggleFlexBtn.textContent = 'Cambiar a display: block (Vertical)';
+                    toggleFlexBtn.style.backgroundColor = '#d97706';
+                } else {
+                    demoFlexList.style.display = 'block';
+                    demoFlexList.style.gap = '0';
+                    toggleFlexBtn.textContent = 'Cambiar a display: flex (Horizontal)';
+                    toggleFlexBtn.style.backgroundColor = '#0284c7';
+                }
+            });
+        }
+
+        const contactForm = document.getElementById('contactForm');
+        contactForm?.addEventListener('submit', event => event.preventDefault());
 
         // --- DEMO TURNO 4: REM VS PX ---
         function setBaseFontSize(size) {

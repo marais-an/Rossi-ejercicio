@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller práctico | Academia Brújula</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>PRÁCTICA E INTERACTIVIDAD</title>
 </head>
 
 <body>
@@ -41,16 +42,16 @@
                 <nav class="site-nav" aria-label="Navegación principal">
                     <span class="tag-badge tag-badge-nav">&lt;nav&gt;</span>
                     <ul>
-                        <li><a href="../index.html">Cursos</a></li>
-                        <li><a href="#preguntas">Preguntas</a></li>
-                        <li><a href="#preguntas">Taller Practico</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="../index.html#cursos">Cursos</a></li>
+                        <li><a href="../index.html#preguntas">Preguntas</a></li>
+                        <li><a href="#taller-practico">Taller práctico</a></li>
+                        <li><a href="../index.html#contacto">Contacto</a></li>
                     </ul>
                 </nav>
             </header>
 
             <!-- SECCIÓN DE PRÁCTICA E INTERACTIVIDAD ("TU TURNO") -->
-            <section class="practice-section" id="preguntas">
+            <section class="practice-section" id="taller-practico">
                 <div class="practice-header">
                     <i class="fa-solid fa-flask-vial fa-2x" style="color: #2563eb;"></i>
                     <div>
@@ -64,12 +65,12 @@
 
                     <!-- TURNO 1: LA CASCADA -->
                     <div class="accordion-item">
-                        <div class="accordion-header">
+                        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="lesson-cascade">
                             <span><i class="fa-solid fa-water text-blue-500"></i> Tu turno 1: La Cascada y
                                 Especificidad</span>
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-body">
+                        </button>
+                        <div class="accordion-body" id="lesson-cascade">
                             <p>Dada la siguiente regla de CSS y elemento HTML:</p>
                             <div class="code-block">
                                 p { color: blue; }
@@ -96,12 +97,12 @@
 
                     <!-- TURNO 2: PADDING VS MARGIN -->
                     <div class="accordion-item">
-                        <div class="accordion-header">
+                        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="lesson-box-model">
                             <span><i class="fa-vector-square fa-solid"></i> Tu turno 2: Padding vs Margin (Modelo de
                                 Caja)</span>
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-body">
+                        </button>
+                        <div class="accordion-body" id="lesson-box-model">
                             <p>Ajusta los deslizadores para ver cómo el <strong>padding</strong> afecta el espacio
                                 interno y el <strong>margin</strong> el espacio externo entre tarjetas:</p>
 
@@ -137,12 +138,12 @@
 
                     <!-- TURNO 3: EL MENÚ EN UNA FILA -->
                     <div class="accordion-item">
-                        <div class="accordion-header">
+                        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="lesson-flexbox">
                             <span><i class="fa-solid fa-bars-staggered"></i> Tu turno 3: Menú en una fila con
                                 Flexbox</span>
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-body">
+                        </button>
+                        <div class="accordion-body" id="lesson-flexbox">
                             <p>Modifica el modo de visualización de la lista de navegación para alternar entre bloque
                                 tradicional y <strong>Flexbox</strong>:</p>
 
@@ -155,19 +156,19 @@
                                 <nav id="demoFlexNav">
                                     <ul id="demoFlexList"
                                         style="list-style: none; padding: 0; margin: 0; background: #e0f2fe; padding: 1rem; border-radius: 0.5rem;">
-                                        <li><a href="#"
+                                        <li><a href="../index.html"
                                                 style="color: #0369a1; text-decoration: none; font-weight: bold;">Inicio</a>
                                         </li>
-                                        <li><a href="#"
+                                        <li><a href="../index.html#cursos"
                                                 style="color: #0369a1; text-decoration: none; font-weight: bold;">Cursos</a>
                                         </li>
-                                        <li><a href="#"
+                                        <li><a href="../index.html#preguntas"
                                                 style="color: #0369a1; text-decoration: none; font-weight: bold;">Preguntas</a>
                                         </li>
-                                        <li><a href="./pages/practice.html"
+                                        <li><a href="#taller-practico"
                                                 style="color: #0369a1; text-decoration: none; font-weight: bold;">Taller
                                                 práctico</a></li>
-                                        <li><a href="#"
+                                        <li><a href="../index.html#contacto"
                                                 style="color: #0369a1; text-decoration: none; font-weight: bold;">Contacto</a>
                                         </li>
                                     </ul>
@@ -185,12 +186,12 @@
 
                     <!-- TURNO 4: ACCESIBILIDAD REM VS PX -->
                     <div class="accordion-item">
-                        <div class="accordion-header">
+                        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="lesson-font-size">
                             <span><i class="fa-solid fa-text-height"></i> Tu turno 4: Decisiones de unidades (rem vs
                                 px)</span>
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-body">
+                        </button>
+                        <div class="accordion-body" id="lesson-font-size">
                             <p>Simula el cambio de tamaño de letra de preferencia del usuario en el navegador para ver
                                 cómo reaccionan las unidades fijas (<code>px</code>) frente a relativas
                                 (<code>rem</code>):</p>
@@ -224,12 +225,12 @@
 
                     <!-- ERROR DETECTAR 3: FOCO ACCESIBLE -->
                     <div class="accordion-item">
-                        <div class="accordion-header">
+                        <button class="accordion-header" type="button" aria-expanded="false" aria-controls="lesson-keyboard-focus">
                             <span><i class="fa-solid fa-keyboard"></i> Error para detectar 3: Accesibilidad de Foco
                                 (:focus-visible)</span>
                             <i class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="accordion-body">
+                        </button>
+                        <div class="accordion-body" id="lesson-keyboard-focus">
                             <p>Prueba a presionar la tecla <strong>Tab</strong> de tu teclado para navegar entre estos
                                 enlaces:</p>
 
@@ -237,12 +238,12 @@
                                 <div>
                                     <p style="margin-top:0;"><strong>Con <code>a { outline: none; }</code>
                                             (Incorrecto):</strong></p>
-                                    <a href="javascript:void(0)" class="focus-demo-link focus-disabled">Enlace Ciego</a>
+                                    <a href="../index.html#cursos" class="focus-demo-link focus-disabled">Enlace Ciego</a>
                                 </div>
                                 <div>
                                     <p style="margin-top:0;"><strong>Con <code>a:focus-visible</code>
                                             (Accesible):</strong></p>
-                                    <a href="javascript:void(0)" class="focus-demo-link focus-enabled">Enlace
+                                    <a href="../index.html#contacto" class="focus-demo-link focus-enabled">Enlace
                                         Accesible</a>
                                 </div>
                             </div>
