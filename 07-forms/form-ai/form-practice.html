@@ -16,13 +16,15 @@
     </header>
 
     <!-- TODO: Aplica una grilla responsiva: 1 columna por defecto, 2 columnas desde pantallas md, con separador de espacio (gap-4) -->
-    <form class="">
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
       
       <!-- Nombre -->
       <div>
         <label for="first-name" class="block text-sm font-medium text-slate-300 mb-1">Nombre</label>
         <!-- TODO: Añade clases base (w-full, rounded-lg, border, px-3, py-2) y el estado focus (ring azul) -->
-        <input id="first-name" name="first-name" type="text" placeholder="Ej. Ada" class="bg-slate-800 border-slate-700 text-white">
+        <input id="first-name" name="first-name" type="text" placeholder="Ej. Ada" class="bg-slate-800 border-slate-700 text-white w-full rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+      
       </div>
 
       <!-- Apellido -->
@@ -33,19 +35,20 @@
 
       <!-- Correo -->
       <!-- TODO: Haz que este contenedor ocupe las 2 columnas en pantallas md usando md:col-span-2 -->
-      <div>
+      <div class="md:col-span-2">
         <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Correo Electrónico</label>
         <input id="email" name="email" type="email" placeholder="ada@deeplearning.ai" class="w-full rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
         
         <!-- TODO: Simula un estado de error cambiando el texto de ayuda a color rojo (text-sm text-red-600) si el correo no es válido -->
-        <p class="text-xs text-slate-500 mt-1">Ingresa un correo corporativo válido.</p>
+        <p class="text-sm text-red-600 mt-1">Ingresa un correo corporativo válido.</p>
+
       </div>
 
       <!-- Campo Deshabilitado -->
       <!-- TODO: Haz que ocupe las 2 columnas y aplica clases para estado deshabilitado (disabled:opacity-50 disabled:cursor-not-allowed) -->
       <div class="md:col-span-2">
         <label for="legacy" class="block text-sm font-medium text-slate-500 mb-1">Campo Bloqueado</label>
-        <input id="legacy" type="text" value="No editable" disabled class="w-full rounded-lg bg-slate-900 border border-slate-800 px-3 py-2 text-slate-600">
+        <input id="legacy" type="text" value="No editable" disabled class="w-full rounded-lg bg-slate-900 border border-slate-800 px-3 py-2 text-slate-600 disabled:opacity-50 disabled:cursor-not-allowed">
       </div>
 
       <!-- Botón de Envío -->
