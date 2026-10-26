@@ -30,17 +30,6 @@ SERVIDOR FÍSICO (un edificio en un datacenter)
 └──────────────────────────────────────────────────┘
 ```
 
-### Tu laptop vs. tu VPS
-
-| Tu laptop | Tu VPS |
-| --- | --- |
-| En tu casa | En un datacenter |
-| No | Sí, 24/7 |
-| Normalmente no | Sí |
-| Sí | No: se maneja por terminal |
-| Los que compraste | Los que contratas por mes |
-| Desarrollar | Publicar APIs, bots, apps, modelos |
-
 ### Radiografía de un plan de VPS
 
 Cuando contrates uno, verás algo así. Cada parte significa algo concreto:
@@ -207,15 +196,7 @@ Con autenticación por llaves creas un par:
 - La llave privada: es tu llave. Se queda en tu laptop y nunca se comparte.
 - La llave pública: es el candado. La copias al servidor y puedes compartirla sin riesgo.
 
-```text
-Tu laptop                                  Tu VPS
-┌────────────────────┐                    ┌──────────────────────┐
-│ llave PRIVADA      │  ── "quiero entrar" ─▶ │ llave PÚBLICA        │
-│ ~/.ssh/id_ed25519  │  ◀── desafío ───────  │ ~/.ssh/authorized_keys│
-│                    │  ── prueba ─────────▶ │ (el candado)         │
-└────────────────────┘                    └──────────────────────┘
-                                              ✔ ¡Bienvenido!
-```
+![ssh-img](../00-assets/img/ssh-img.png)
 
 El servidor te lanza un desafío que solo puede resolver quien tiene la llave privada correcta. Tu llave nunca viaja por la red.
 
@@ -287,7 +268,7 @@ Editar archivos con `nano` sirve para arreglos rápidos, pero para un proyecto r
 
 En lugar de recordar IPs y usuarios, dale un apodo a tu servidor:
 
-```sshconfig
+```text
 Host mi-vps
     HostName 203.0.113.10
     User deploy
@@ -305,7 +286,7 @@ Y en VS Code, `mi-vps` aparecerá directamente en la lista de hosts.
 | --- | --- |
 | `nano` | Editor completo con colores y búsqueda |
 | `ls` y `cd` | Panel lateral con el árbol |
-| La única ventana | Integrada (`Ctrl+ñ` o `Ctrl+ `) |
+| La única ventana | Integrada (`Ctrl+ñ` o `Ctrl+~`) |
 | No aplica | Se instalan en el servidor |
 
 Un detalle importante: al conectarte, VS Code instala un pequeño componente de servidor en tu VPS y lo mantiene corriendo. En un servidor con poca memoria eso se nota. Es el puente perfecto hacia la siguiente parte.
@@ -419,3 +400,6 @@ sudo dmesg | grep -i -E "out of memory|killed process"
 
 > **Pausa de recuperación 6**  
 > (a) ¿Qué columna de `free -h` te dice cuánta memoria puedes usar realmente? (b) ¿Por qué el swap no reemplaza a la RAM? (c) ¿Por qué nunca debes desactivar el servicio `ssh`?
+
+
+
